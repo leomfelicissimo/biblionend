@@ -1,4 +1,10 @@
-package repository
+package repositories
+
+import (
+	"log"
+
+	"github.com/leomfelicissimo/biblionend/dbutil"
+)
 
 // Book represents a basic structure of book data
 type Book struct {
@@ -28,7 +34,9 @@ func parseDocuments(documents []map[string]interface{}) []Book {
 
 // GetAll gets all data from books collection
 func (r BookRepository) GetAll() ([]Book, error) {
-	repository := &Repository{CollectionName: "books"}
+	log.Println("Getting all books")
+
+	repository := &dbutil.Repository{CollectionName: "books"}
 
 	bookDocuments, err := repository.GetAll()
 	if err != nil {

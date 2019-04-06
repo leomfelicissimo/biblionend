@@ -1,7 +1,8 @@
-package repository
+package dbutil
 
 import (
 	"context"
+	"errors"
 	"log"
 	"os"
 	"time"
@@ -16,7 +17,23 @@ var biblionDatabase = os.Getenv("MONGODB_DATABASE")
 
 const defaultTimeout = 30 * time.Second
 
+// Repository represents a data repository
+type Repository struct {
+	CollectionName string
+}
+
+// Cursor represents a cursor of data
+type Cursor interface {
+	Next(context.Context) bool
+	Decode(val interface{}) error
+	Close(context.Context) error
+}
+
 func getCollection(name string) (*mongo.Collection, error) {
+	if name == "" {
+		return nil, errors.New("getCollection: name is required")
+	}
+
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(mongoURL))
@@ -28,11 +45,7 @@ func getCollection(name string) (*mongo.Collection, error) {
 	return collection, err
 }
 
-type Repository struct {
-	CollectionName string
-}
-
-func parseCursorDocuments(ctx context.Context, cursor *mongo.Cursor) ([]map[string]interface{}, error) {
+func parseCursor(ctx context.Context, cursor Cursor) ([]map[string]interface{}, error) {
 	defer cursor.Close(ctx)
 
 	var documents []map[string]interface{}
@@ -48,6 +61,7 @@ func parseCursorDocuments(ctx context.Context, cursor *mongo.Cursor) ([]map[stri
 	return documents, nil
 }
 
+// GetAll method performs a find all in the given collection
 func (r Repository) GetAll() ([]map[string]interface{}, error) {
 	collection, err := getCollection(r.CollectionName)
 	if err != nil {
@@ -65,6 +79,6 @@ func (r Repository) GetAll() ([]map[string]interface{}, error) {
 		return nil, err
 	}
 
-	documents, err := parseCursorDocuments(ctx, cursor)
+	documents, err := parseCursor(ctx, cursor)
 	return documents, err
 }

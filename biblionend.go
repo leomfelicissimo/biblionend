@@ -6,11 +6,11 @@ import (
 	"net/http"
 
 	"github.com/graphql-go/handler"
-	"github.com/leomfelicissimo/biblionend/schema"
+	"github.com/leomfelicissimo/biblionend/schemas"
 )
 
 func main() {
-	schema, err := schema.CreateSchema()
+	schema, err := schemas.CreateSchema()
 	if err != nil {
 		log.Fatalln("Erro ao criar schema", err)
 	}
