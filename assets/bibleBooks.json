@@ -1,0 +1,266 @@
+[
+    {
+        "name": "Gênesis",
+        "abbreviation": "Gn"
+    },
+    {
+        "name": "Êxodo",
+        "abbreviation": "Ex"
+    },
+    {
+        "name": "Levítico",
+        "abbreviation": "Lv"
+    },
+    {
+        "name": "Números",
+        "abbreviation": "Nm"
+    },
+    {
+        "name": "Deuteronômio",
+        "abbreviation": "Dt"
+    },
+    {
+        "name": "Josué",
+        "abbreviation": "Js"
+    },
+    {
+        "name": "Juízes",
+        "abbreviation": "Jz"
+    },
+    {
+        "name": "Rute",
+        "abbreviation": "Rt"
+    },
+    {
+        "name": "1 Samuel",
+        "abbreviation": "1 Sm"
+    },
+    {
+        "name": "2 Samuel",
+        "abbreviation": "2 Sm"
+    },
+    {
+        "name": "1 Reis",
+        "abbreviation": "1 Rs"
+    },
+    {
+        "name": "2 Reis",
+        "abbreviation": "2 Rs"
+    },
+    {
+        "name": "1 Crônicas",
+        "abbreviation": "1 Cr"
+    },
+    {
+        "name": "2 Crônicas",
+        "abbreviation": "2 Cr"
+    },
+    {
+        "name": "Esdras",
+        "abbreviation": "Ed"
+    },
+    {
+        "name": "Neemias",
+        "abbreviation": "Ne"
+    },
+    {
+        "name": "Ester",
+        "abbreviation": "Et"
+    },
+    {
+        "name": "Jó",
+        "abbreviation": "Jo"
+    },
+    {
+        "name": "Salmos",
+        "abbreviation": "Sl"
+    },
+    {
+        "name": "Provérbios",
+        "abbreviation": "Pv"
+    },
+    {
+        "name": "Eclesiastes",
+        "abbreviation": "Ec"
+    },
+    {
+        "name": "Cantares ou Cânticos dos Cânticos",
+        "abbreviation": "Ct"
+    },
+    {
+        "name": "Isaías",
+        "abbreviation": "Is"
+    },
+    {
+        "name": "Jeremias",
+        "abbreviation": "Jr"
+    },
+    {
+        "name": "Lamentações de Jeremias",
+        "abbreviation": "Lm"
+    },
+    {
+        "name": "Ezequiel",
+        "abbreviation": "Ez"
+    },
+    {
+        "name": "Daniel",
+        "abbreviation": "Dn"
+    },
+    {
+        "name": "Oséias",
+        "abbreviation": "Os"
+    },
+    {
+        "name": "Joel",
+        "abbreviation": "Jl"
+    },
+    {
+        "name": "Amós",
+        "abbreviation": "Am"
+    },
+    {
+        "name": "Obadias",
+        "abbreviation": "Ob"
+    },
+    {
+        "name": "Jonas",
+        "abbreviation": "Jn"
+    },
+    {
+        "name": "Miquéias",
+        "abbreviation": "Mq"
+    },
+    {
+        "name": "Naum",
+        "abbreviation": "Na"
+    },
+    {
+        "name": "Habacuque",
+        "abbreviation": "Hc"
+    },
+    {
+        "name": "Sofonias",
+        "abbreviation": "Sf"
+    },
+    {
+        "name": "Ageu",
+        "abbreviation": "Ag"
+    },
+    {
+        "name": "Zacarias",
+        "abbreviation": "Zc"
+    },
+    {
+        "name": "Malaquias",
+        "abbreviation": "Ml"
+    },
+    {
+        "name": "Mateus",
+        "abbreviation": "Mt"
+    },
+    {
+        "name": "Marcos",
+        "abbreviation": "Mc"
+    },
+    {
+        "name": "Lucas",
+        "abbreviation": "Lc"
+    },
+    {
+        "name": "João",
+        "abbreviation": "Jo"
+    },
+    {
+        "name": "Atos dos Apóstolos",
+        "abbreviation": "At"
+    },
+    {
+        "name": "Romanos",
+        "abbreviation": "Rm"
+    },
+    {
+        "name": "1 Coríntios",
+        "abbreviation": "1 Co"
+    },
+    {
+        "name": "2 Coríntios",
+        "abbreviation": "2 Co"
+    },
+    {
+        "name": "Gálatas",
+        "abbreviation": "Gl"
+    },
+    {
+        "name": "Efésios",
+        "abbreviation": "Ef"
+    },
+    {
+        "name": "Filipenses",
+        "abbreviation": "Fp"
+    },
+    {
+        "name": "Colossenses",
+        "abbreviation": "Cl"
+    },
+    {
+        "name": "1 Tessalonicenses",
+        "abbreviation": "1 Ts"
+    },
+    {
+        "name": "2 Tessalonicenses",
+        "abbreviation": "2 Ts"
+    },
+    {
+        "name": "1 Timóteo",
+        "abbreviation": "1 Tm"
+    },
+    {
+        "name": "2 Timóteo",
+        "abbreviation": "2 Tm"
+    },
+    {
+        "name": "Tito",
+        "abbreviation": "Tt"
+    },
+    {
+        "name": "Filemom",
+        "abbreviation": "Fm"
+    },
+    {
+        "name": "Hebreus",
+        "abbreviation": "Hb"
+    },
+    {
+        "name": "Tiago",
+        "abbreviation": "Tg"
+    },
+    {
+        "name": "1 Pedro",
+        "abbreviation": "1 Pe"
+    },
+    {
+        "name": "2 Pedro",
+        "abbreviation": "2 Pe"
+    },
+    {
+        "name": "1 João",
+        "abbreviation": "1 Jo"
+    },
+    {
+        "name": "2 João",
+        "abbreviation": "2 Jo"
+    },
+    {
+        "name": "3 João",
+        "abbreviation": "3 Jo"
+    },
+    {
+        "name": "Judas",
+        "abbreviation": "Jd"
+    },
+    {
+        "name": "Apocalipse",
+        "abbreviation": "Ap"
+    }
+]
