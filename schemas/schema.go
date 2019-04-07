@@ -13,8 +13,9 @@ func queryObject() *gql.Object {
 	objectConfig := gql.ObjectConfig{
 		Name: "Query",
 		Fields: gql.Fields{
-			"hello": helloField(),
-			"book":  bookField(),
+			"hello":     helloField(),
+			"book":      bookField(),
+			"bibleText": bibleTextField(),
 		},
 	}
 
