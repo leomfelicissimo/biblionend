@@ -4,10 +4,10 @@ import "testing"
 
 func TestGetAll(t *testing.T) {
 	bookRepo := &BookRepository{}
-	books, err := bookRepo.GetAll()
+	books, err := bookRepo.FindAll()
 
 	if err != nil {
-		t.Error("Error calling GetAllBooks", err)
+		t.Error("Error calling FindAll", err)
 	}
 
 	if len(books) == 0 {

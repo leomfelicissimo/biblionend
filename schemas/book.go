@@ -31,7 +31,7 @@ func bookField() *gql.Field {
 		Resolve: func(p gql.ResolveParams) (interface{}, error) {
 			log.Println("Resolving book.name")
 			bookRepo := &repositories.BookRepository{}
-			return bookRepo.GetAll()
+			return bookRepo.FindAll()
 		},
 	}
 }

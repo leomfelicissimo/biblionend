@@ -61,9 +61,8 @@ func parseCursor(ctx context.Context, cursor Cursor) ([]map[string]interface{}, 
 	return documents, nil
 }
 
-// GetAll method performs a find all in the given collection
-func (r Repository) GetAll() ([]map[string]interface{}, error) {
-	collection, err := getCollection(r.CollectionName)
+func ExecuteManyResult(collectionName string, filter interface{}) ([]map[string]interface{}, error) {
+	collection, err := getCollection(collectionName)
 	if err != nil {
 		log.Println("Error getting collection", err)
 		return nil, err
@@ -72,7 +71,7 @@ func (r Repository) GetAll() ([]map[string]interface{}, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), defaultTimeout)
 	defer cancel()
 
-	cursor, err := collection.Find(ctx, bson.D{})
+	cursor, err := collection.Find(ctx, filter)
 
 	if err != nil {
 		log.Println("Error finding data", err)
@@ -81,4 +80,32 @@ func (r Repository) GetAll() ([]map[string]interface{}, error) {
 
 	documents, err := parseCursor(ctx, cursor)
 	return documents, err
+}
+
+func ExecuteSingleResult(collectionName string, filter interface{}) (map[string]interface{}, error) {
+	collection, err := getCollection(collectionName)
+	if err != nil {
+		log.Println("Error getting collection", err)
+		return nil, err
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), defaultTimeout)
+	defer cancel()
+
+	result := collection.FindOne(ctx, filter)
+
+	var document bson.D
+	err = result.Decode(&document)
+
+	return document.Map(), err
+}
+
+// FindAll method performs a find all in the given collection
+func (r Repository) FindAll() ([]map[string]interface{}, error) {
+	return ExecuteManyResult(r.CollectionName, bson.D{})
+}
+
+// FindBy method performs a find getting a single result using a specific field
+func (r Repository) FindBy(field string, value interface{}) (map[string]interface{}, error) {
+	return ExecuteSingleResult(r.CollectionName, bson.D{{field, value}})
 }

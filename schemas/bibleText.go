@@ -2,6 +2,9 @@ package schemas
 
 import (
 	"log"
+	"regexp"
+
+	"github.com/leomfelicissimo/biblionend/repositories"
 
 	gql "github.com/graphql-go/graphql"
 )
@@ -21,13 +24,21 @@ func bibleTextObject() *gql.Object {
 	return gql.NewObject(objectConfig)
 }
 
+func sanitize(ref string) string {
+	r := regexp.MustCompile(`([\.:,;\s])`)
+	return r.ReplaceAllString(ref, "")
+}
+
 func bibleTextField() *gql.Field {
 	return &gql.Field{
-		Type: &gql.List{OfType: bibleTextObject()},
+		Type: bibleTextObject(),
 		Resolve: func(p gql.ResolveParams) (interface{}, error) {
-			reference := p.Args["reference"]
+			reference := sanitize(p.Args["reference"].(string))
+			// TODO: Identificar a abreviatura do livro
 			log.Println("Reference:", reference)
-			return "Ok", nil
+
+			repository := &repositories.BibleTextRepository{}
+			return repository.FindByReference(reference)
 		},
 		Args: gql.FieldConfigArgument{
 			"reference": &gql.ArgumentConfig{Type: gql.String},

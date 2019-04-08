@@ -22,7 +22,7 @@ func documentToBook(document map[string]interface{}) Book {
 	}
 }
 
-func parseDocuments(documents []map[string]interface{}) []Book {
+func parseToBooks(documents []map[string]interface{}) []Book {
 	var books []Book
 	for _, document := range documents {
 		book := documentToBook(document)
@@ -33,15 +33,15 @@ func parseDocuments(documents []map[string]interface{}) []Book {
 }
 
 // GetAll gets all data from books collection
-func (r BookRepository) GetAll() ([]Book, error) {
+func (r BookRepository) FindAll() ([]Book, error) {
 	log.Println("Getting all books")
 
 	repository := &dbutil.Repository{CollectionName: "books"}
 
-	bookDocuments, err := repository.GetAll()
+	bookDocuments, err := repository.FindAll()
 	if err != nil {
 		return nil, err
 	}
 
-	return parseDocuments(bookDocuments), nil
+	return parseToBooks(bookDocuments), nil
 }
